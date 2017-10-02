@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h1>Esta es una practica para Alexei de Peliculas</h1>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Año</th>
+          <th>Puntaje</th>
+          <th>Acción</th>
+          <th>
+            <%= link_to "Añadir pelicula", new_film_path ,class: "btn btn-success" %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @films.each do |film| %>
+          <tr class="success">
+            <td>film.id</td>
+            <td>film.title</td>
+            <td>film.year</td>
+            <td>
+                <%= link_to "Ver", film_path(film.id), class: "btn btn-primary" %>
+                <%= link_to "Editar", edit_film_path(film.id), class: "btn btn-warning" %>
+                <%= link_to "Eliminar", film_path(film.id), class: "btn btn-danger", method: :delete %>
+            </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
