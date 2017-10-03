@@ -1,5 +1,5 @@
 class FilmsController < ApplicationController
-  @rating = {"uno":"1","dos":"2","tres":"3","cuatro":"4","cinco":"5"}
+  @ratingSelect = {"uno":"1","dos":"2","tres":"3","cuatro":"4","cinco":"5"}
 
   before_action :find_film, only: [:edit, :update, :destroy, :show]
     def index
