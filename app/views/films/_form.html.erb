@@ -1,21 +1,37 @@
+
 <%= form_for @film do |f| %>
-  <div class="form-group">
-    <%= f.label :title, "Titulo" %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="form-group">
-    <%= f.label :year, "Año" %>
-    <%= f.text_field :year %>
-  </div>
-  <div class="form-group">
-    <%= f.label :rating, "Puntuacion" %>
-    <%= f.number_field :rating %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, "Descripcion" %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="form-group">
-    <%= f.submit button_name, class: "btn btn-primary" %>
-  </div>
+  <form class="form-horizontal">
+  <fieldset>
+    <legend>Pelicula</legend>
+    <div class="form-group">
+      <%= f.label :title, "Titulo", class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :title, class: "form-control", placeholder: "Titulo" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :title, "Año", class:"col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :year, class: "form-control", placeholder: "Año" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :rating, "Puntuacion", for: "select", class: "col-lg-2 control-label"%>
+      <div class="col-lg-10">
+        <% f.select :rating, class: "form-control", id: "select", options_for_select(@rating, selected: @rating.uno)%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, "Descripcion", class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_area :description, class: "form-control", rows:"3", id:"textArea" %>
+      </div>
+    </div>
+    <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit button_name, class: "btn btn-primary" %>
+          </div>
+    </div>
+  </fieldset>
+</form>
 <% end %>

@@ -1,7 +1,7 @@
 class FilmsController < ApplicationController
+  @rating = {"uno":"1","dos":"2","tres":"3","cuatro":"4","cinco":"5"}
+
   before_action :find_film, only: [:edit, :update, :destroy, :show]
-
-
     def index
       @films = Film.all
     end
@@ -43,7 +43,7 @@ class FilmsController < ApplicationController
 
     private
     def films_params
-      params.require(:film).permit(:title,:year,:rating,:description)
+      params.require(:film).permit(:title,:rating,:description, :cover, :year)
     end
 
     def find_film
