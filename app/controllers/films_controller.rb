@@ -1,7 +1,6 @@
 class FilmsController < ApplicationController
-  @ratingSelect = {"uno":"1","dos":"2","tres":"3","cuatro":"4","cinco":"5"}
-
   before_action :find_film, only: [:edit, :update, :destroy, :show]
+  before_action :init_rating, only: [:new, :edit]
     def index
       @films = Film.all
     end
@@ -48,6 +47,10 @@ class FilmsController < ApplicationController
 
     def find_film
       @film = Film.find(params[:id])
+    end
+
+    def init_rating
+      @ratingSelect = [["uno","1"],["dos","2"],["tres", "3"],["cuatro","4"],["cinco","5"]]
     end
 
 end
