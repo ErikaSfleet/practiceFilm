@@ -50,7 +50,7 @@ class FilmsController < ApplicationController
     end
 
     def init_rating
-      @ratingSelect = [["uno","1"],["dos","2"],["tres", "3"],["cuatro","4"],["cinco","5"]]
+      @ratingSelect = [["1","uno"],["2","dos"],["3", "tres"],["4","cuatro"],["5","cinco"]]
     end
 
 end
