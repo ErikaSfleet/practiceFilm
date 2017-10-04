@@ -5,6 +5,7 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Imagen</th>
           <th>Nombre</th>
           <th>Año</th>
           <th>Puntaje</th>
@@ -18,6 +19,7 @@
         <% @films.each do |film| %>
           <tr class="success">
             <td><%=film.id %></td>
+            <td><%= image_tag(film.cover, :width => 65, :height => 75) if film.cover.present? %></td>
             <td><%=film.title%></td>
             <td><%=film.year%></td>
             <td><%=film.rating%></td>

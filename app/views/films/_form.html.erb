@@ -1,6 +1,6 @@
 
-<%= form_for @film do |f| %>
-  <form class="form-horizontal">
+<%= form_for @film, :html => {:multipart => true} do |f| %>
+<form class="form-horizontal">
   <fieldset>
     <legend>Pelicula</legend>
     <div class="form-group">
@@ -25,6 +25,12 @@
       <%= f.label :description, "Descripcion", class: "col-lg-2 control-label" %>
       <div class="col-lg-10">
         <%= f.text_area :description, class: "form-control", rows:"3", id:"textArea" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :cover, "Foto", class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.file_field :cover, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
