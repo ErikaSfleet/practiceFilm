@@ -24,7 +24,7 @@
     <div class="form-group">
       <br>
       <label class="control-label" for="disabledInput">Imagen</label>
-      <%= image_tag(f.cover, :width => 65, :height => 75) if f.cover.present? %>
+      <%= image_tag(@film.cover, :width => 65, :height => 75) if @film.cover.present? %>
     </div>
   </div>
   <%end%>
