@@ -13,7 +13,7 @@
                     <h4 class="card-title"><%= f.title %></h4>
                     <p class="card-text">Su rating: <%= f.rating %> estrellas</p>
                     <% if current_user %>
-                        <%= link_to "Agregar a favorito", index_path(@film.id, user: current_user), class: "btn btn-primary", method: :post %>
+                        <%= link_to "Agregar a favorito", favorites_path(id: f.id), class: "btn btn-primary", method: :post %>
                     <% end %>
                     <br>
                   </div>
