@@ -1,9 +1,10 @@
 class FilmsController < ApplicationController
-  
+
   before_action :find_film, only: [:edit, :update, :destroy, :show]
   before_action :init_rating, only: [:new, :edit]
     def index
-      @films = Film.all
+      @pages = Film.order(:title).page(params[:page])
+
     end
     def new
       @film = Film.new
