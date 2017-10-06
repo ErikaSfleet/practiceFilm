@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
 
   resources :favorites
-
-  get 'my_favorites', to: 'users#my_favorites'
-  post 'add_film', to: 'users#add_film'
-  
   resources :films
+  #get 'my_favorites', to: 'users#my_favorites'
+  post 'index', to: 'favorites#index'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

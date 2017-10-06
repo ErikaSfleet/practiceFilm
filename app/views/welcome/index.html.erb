@@ -5,17 +5,22 @@
         <div class="panel panel-success">
             <div class="panel-heading">Peliculas</div>
           <div class="panel-body">
-            <% @films.each do |film| %>
-              <div>
-                  <%= image_tag(film.cover, :width => 65, :height => 75) if film.cover.present? %>
-                  <p class="text-primary"><h4> <%= film.title %></h4> rating: <%= film.rating %> </p>
-                  <div>
+
+            <% @films.each do |f| %>
+                <div class="card" style="width: 20rem;">
+                  <%= image_tag(f.cover, :width => 65, :height => 75) if f.cover.present? %>
+                  <div class="card-block">
+                    <h4 class="card-title"><%= f.title %></h4>
+                    <p class="card-text">Su rating: <%= f.rating %> estrellas</p>
                     <% if current_user %>
-                        <%= link_to "Agregar a favorito", add_film_path(@film, user: current_user), class: "btn btn-primary", method: :post %>
+                        <%= link_to "Agregar a favorito", index_path(@film.id, user: current_user), class: "btn btn-primary", method: :post %>
                     <% end %>
+                    <br>
                   </div>
-              </div>
+                </div>
             <%end%>
+
+            </div>
           </div>
         </div>
       </div>
