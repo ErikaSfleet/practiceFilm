@@ -9,11 +9,11 @@
               <div>
                   <%= image_tag(film.cover, :width => 65, :height => 75) if film.cover.present? %>
                   <p class="text-primary"><h4> <%= film.title %></h4> rating: <%= film.rating %> </p>
-                  <% if current_user %>
-                      
-                    <% else %>
-                      <%= link_to 'Login', new_user_session_path %>
-                  <% end %>
+                  <div>
+                    <% if current_user %>
+                        <%= link_to "Agregar a favorito", add_film_path(@film, user: current_user), class: "btn btn-primary", method: :post %>
+                    <% end %>
+                  </div>
               </div>
             <%end%>
           </div>
@@ -32,7 +32,7 @@
                 </div>
               <% end %>
               <% if current_user %>
-                Bienvenida <%= current_user.email %> <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                Bienvenida/o <%= current_user.email %> <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
                 <% else %>
                   <%= link_to 'Login', new_user_session_path %>
               <% end %>

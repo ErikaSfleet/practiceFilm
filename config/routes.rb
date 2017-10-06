@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   # get 'welcome/index'
   root 'welcome#index'
 
+
+  resources :favorites
+
+  get 'my_favorites', to: 'users#my_favorites'
+  post 'add_film', to: 'users#add_film'
+  
   resources :films
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

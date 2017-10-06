@@ -1,4 +1,5 @@
 class FilmsController < ApplicationController
+  
   before_action :find_film, only: [:edit, :update, :destroy, :show]
   before_action :init_rating, only: [:new, :edit]
     def index
